@@ -1,0 +1,34 @@
+# ¿Qué? Archivos que git no debe versionar.
+# ¿Para qué? Evitar subir credenciales, dependencias instaladas y archivos generados.
+# ¿Impacto? Sin esto se filtrarían secretos (.env) y el repositorio se llenaría de basura.
+
+# --- Variables de entorno (solo se versiona .env.example) ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Node.js ---
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# --- Pruebas E2E ---
+e2e/playwright-report/
+e2e/test-results/
+
+# --- Editores y sistema operativo ---
+.vscode/*
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
