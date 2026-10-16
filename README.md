@@ -30,6 +30,18 @@ por fases, mediante issues y pull requests.
 
 ---
 
+## 📚 Documentación
+
+| Documento                                                                    | Descripción                                                |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [`docs/requisitos/`](docs/requisitos/README.md)                              | Los 39 requisitos funcionales, historias de usuario y RNF  |
+| [`docs/requisitos/restricciones.md`](docs/requisitos/restricciones.md)       | Restricciones técnicas, de diseño, de idioma y seguridad   |
+| [`docs/colaboracion/flujo-github.md`](docs/colaboracion/flujo-github.md)     | Issues, ramas, pull requests y revisión entre las dos personas del equipo |
+| [`docs/testing/hallazgos.md`](docs/testing/hallazgos.md)                     | Hallazgos de la revisión formativa y su resolución         |
+| [`.github/copilot-instructions.md`](.github/copilot-instructions.md)         | Reglas y convenciones del proyecto                         |
+
+---
+
 ## 📚 Origen de la estructura
 
 La organización del repositorio, las convenciones y el flujo de trabajo se basan en el
