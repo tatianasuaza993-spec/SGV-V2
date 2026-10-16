@@ -1,0 +1,30 @@
+# ¿Qué? Formulario de issue para una mejora que no agrega funcionalidad nueva.
+# ¿Para qué? Registrar refactors, deuda técnica y mejoras de documentación o calidad.
+# ¿Impacto? Sin issue, estos cambios llegan a `main` sin justificación ni revisión.
+
+name: "✨ Mejora"
+description: Refactor, deuda técnica, documentación o calidad.
+title: "[Mejora] "
+labels: ["type:docs"]
+
+body:
+  - type: textarea
+    id: situacion
+    attributes:
+      label: Situación actual
+    validations:
+      required: true
+
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta
+    validations:
+      required: true
+
+  - type: input
+    id: hallazgo
+    attributes:
+      label: Hallazgo relacionado (opcional)
+      description: Referencia a `docs/testing/hallazgos.md`.
+      placeholder: "H7"

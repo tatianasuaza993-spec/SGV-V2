@@ -1,0 +1,10 @@
+# ¿Qué? Desactiva los issues en blanco y agrega enlaces de ayuda.
+# ¿Para qué? Obligar a usar una plantilla: un issue sin contexto no es trabajo trazable.
+# ¿Impacto? Sin esto se abren issues de una línea que nadie puede estimar ni revisar.
+
+blank_issues_enabled: false
+
+contact_links:
+  - name: 📖 Flujo de trabajo en GitHub
+    url: https://github.com/tatianasuaza993-spec/SGV-V2/blob/main/docs/colaboracion/flujo-github.md
+    about: Ciclo completo issue → rama → pull request → revisión → merge.

@@ -1,0 +1,41 @@
+# ¿Qué? Formulario de issue para reportar un comportamiento incorrecto.
+# ¿Para qué? Un bug sin pasos para reproducirlo no se puede corregir ni verificar.
+# ¿Impacto? Sin esta estructura se pierde tiempo preguntando qué se hizo exactamente.
+
+name: "🐛 Bug"
+description: Algo no funciona como debería.
+title: "[Bug] "
+labels: ["type:bug"]
+
+body:
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir
+      description: Numerados y desde un entorno limpio.
+      value: |
+        1.
+        2.
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamiento esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamiento actual
+      description: Incluye el mensaje de error o una captura si ayuda.
+    validations:
+      required: true
+
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito afectado (opcional)
+      placeholder: "RF-009"
