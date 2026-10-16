@@ -30,17 +30,6 @@ por fases, mediante issues y pull requests.
 
 ---
 
-## 📚 Origen de la estructura
-
-La organización del repositorio, las convenciones y el flujo de trabajo se basan en el
-proyecto de referencia
-[`ergrato-dev/proyecto-be_fastapi-fe_react`](https://github.com/ergrato-dev/proyecto-be_fastapi-fe_react),
-licenciado bajo [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-El código de SGV se escribe desde cero; se adaptan la estructura, las reglas y los criterios
-de calidad de esa referencia.
-
----
-
 ## 📄 Licencia
 
 Este proyecto se comparte bajo la misma licencia que su referencia:
