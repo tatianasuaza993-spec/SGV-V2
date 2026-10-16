@@ -32,5 +32,5 @@ por fases, mediante issues y pull requests.
 
 ## 📄 Licencia
 
-Este proyecto se comparte bajo la misma licencia que su referencia:
+licencia:
 **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
