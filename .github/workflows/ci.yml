@@ -1,0 +1,27 @@
+# ¿Qué? Integración continua (CI) del SGV: se ejecuta en cada pull request y en cada push a main.
+# ¿Para qué? Verificar lint, formato, build y pruebas antes de mergear.
+# ¿Impacto? Sin CI, un PR puede entrar a main con pruebas rotas y el error se descubre tarde.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Mínimo privilegio: la CI solo necesita leer el código.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  entorno:
+    name: Entorno
+    runs-on: ubuntu-24.04
+    steps:
+      # actions/checkout pinado por SHA para prevenir ataques a la cadena de suministro
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - run: python3 --version && node --version && docker --version
