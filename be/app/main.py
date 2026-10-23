@@ -15,7 +15,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from app.config import get_settings
 from app.exceptions import DomainError
-from app.routers import health
+from app.routers import auth, health, institutions, invitation_codes, users
 
 logger = logging.getLogger(__name__)
 
@@ -56,7 +56,14 @@ def create_app() -> FastAPI:
             content={"detail": "Internal server error", "code": "internal_error"},
         )
 
-    app.include_router(health.router, prefix=API_PREFIX)
+    for router in (
+        health.router,
+        auth.router,
+        users.router,
+        institutions.router,
+        invitation_codes.router,
+    ):
+        app.include_router(router, prefix=API_PREFIX)
     return app
 
 
