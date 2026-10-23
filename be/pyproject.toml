@@ -1,0 +1,49 @@
+# ¿Qué? Configuración del backend: dependencias con versión exacta, ruff y pytest.
+# ¿Para qué? Que cualquier persona (o la CI) instale exactamente las mismas versiones.
+# ¿Impacto? Una versión sin fijar es una vulnerabilidad en espera de manifestarse (RH-005).
+
+[project]
+name = "sgv-backend"
+version = "0.1.0"
+description = "Backend del Sistema de Gestión de Votaciones (SGV)"
+requires-python = ">=3.12"
+dependencies = [
+    # Framework y servidor
+    "fastapi==0.135.1",
+    "uvicorn[standard]==0.42.0",
+    "python-multipart==0.0.32",
+    # Base de datos y ORM
+    "sqlalchemy==2.0.48",
+    "alembic==1.18.4",
+    "psycopg2-binary==2.9.11",
+    # Validación y configuración
+    "pydantic==2.12.5",
+    "pydantic-settings==2.13.1",
+    "email-validator==2.3.0",
+    # Seguridad: bcrypt se usa directamente (RT-005) y PyJWT para los tokens (RT-004)
+    "bcrypt==4.0.1",
+    "PyJWT==2.14.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.0.2",
+    "pytest-cov==7.0.0",
+    "httpx==0.28.1",
+    "ruff==0.15.7",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["app/tests"]
+pythonpath = ["."]
+addopts = "--cov=app --cov-report=term-missing"
+
+[tool.coverage.run]
+omit = ["app/tests/*"]
