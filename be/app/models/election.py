@@ -19,7 +19,7 @@ from sqlalchemy import (
     UniqueConstraint,
     text,
 )
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, IdMixin, TimestampMixin
 from app.models.enums import ElectionStatus, enum_column
@@ -45,6 +45,14 @@ class Election(IdMixin, TimestampMixin, Base):
     # El administrador decide cuándo se publican los resultados (H5, RF-015)
     results_published: Mapped[bool] = mapped_column(
         Boolean, server_default=text("false"), default=False, nullable=False
+    )
+    # Los cargos se borran en cascada desde la base de datos (ON DELETE CASCADE); si hay votos,
+    # la base impide borrar la elección (H4).
+    positions: Mapped[list["Position"]] = relationship(
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+        order_by="Position.name",
+        lazy="selectin",
     )
 
 

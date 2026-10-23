@@ -15,7 +15,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from app.config import get_settings
 from app.exceptions import DomainError
-from app.routers import auth, health, institutions, invitation_codes, users
+from app.routers import auth, elections, health, institutions, invitation_codes, users
 
 logger = logging.getLogger(__name__)
 
@@ -62,6 +62,7 @@ def create_app() -> FastAPI:
         users.router,
         institutions.router,
         invitation_codes.router,
+        elections.router,
     ):
         app.include_router(router, prefix=API_PREFIX)
     return app

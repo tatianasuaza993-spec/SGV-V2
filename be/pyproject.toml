@@ -39,6 +39,8 @@ line-length = 100
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+# B008: FastAPI usa Depends(...) como valor por defecto, es su patrón normal
+ignore = ["B008"]
 
 [tool.pytest.ini_options]
 testpaths = ["app/tests"]
