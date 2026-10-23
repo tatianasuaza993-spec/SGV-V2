@@ -19,6 +19,7 @@ from app.models import (
     Role,
     User,
 )
+from app.utils.security import create_access_token
 
 _counter = itertools.count(1)
 
@@ -78,3 +79,8 @@ def make_candidacy(
     session.add(candidacy)
     session.flush()
     return candidacy
+
+
+def auth_headers(user: User) -> dict[str, str]:
+    """Encabezado Authorization con un token de acceso válido para el usuario."""
+    return {"Authorization": f"Bearer {create_access_token(user.id, user.role.value)}"}
