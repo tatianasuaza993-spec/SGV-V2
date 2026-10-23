@@ -65,3 +65,16 @@ def db_session(db_engine: Engine) -> Iterator[Session]:
     session.close()
     transaction.rollback()
     connection.close()
+
+
+@pytest.fixture
+def client(db_session: Session):
+    """Cliente HTTP que usa la sesión de pruebas (todo se deshace al terminar)."""
+    from fastapi.testclient import TestClient
+
+    from app.database import get_db
+    from app.main import create_app
+
+    app = create_app()
+    app.dependency_overrides[get_db] = lambda: db_session
+    return TestClient(app)
